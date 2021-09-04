@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FinikFlame.Com</title>
+        <script>
+            function calculate() {
+               let num1=parseFloat(document.form.Num1.value);
+               let num2=parseFloat(document.form.Num2.value);
+               let result= num1/ num2**2;//BMI=kg/m**2
+            
+               if(result<18.5){
+                   alert("Your BMI is Under weight")
+               }
+               else if(result>=18.5 && result<=24.9){
+                   alert("Your BMI is Normal weight")
+               }
+               else if(result>=25 && result<=29.9){
+                   alert("Your BMI is Over weight") 
+               }
+               else{
+                   alert("Your BMI is Obesity")
+               }
+
+               document.form.Result.value= result;
+
+            }
+           
+        </script>
+        <style>
+            .body{
+                background-image: url(https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/239946577_4520712691292352_6531315952025537487_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=9267fe&_nc_ohc=8im1_NQz9RQAX_GzLrx&_nc_ht=scontent-sin6-2.xx&oh=d51ef067a4c875f0adc28782930f359f&oe=61229C90);
+                height:700px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                
+                overflow-y: hidden;
+               
+              
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                width:130px;
+                height: 180px;
+                visibility: initial;
+                padding: 40px;
+                border-style: solid;
+                border-width:3px;
+                border-radius: 15px;
+
+            }
+            input{
+                width:100px;
+                border-radius: 5px;
+                background-color: lightgray;
+            }
+            input:hover{
+                background-image: url(https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/239946577_4520712691292352_6531315952025537487_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=9267fe&_nc_ohc=8im1_NQz9RQAX_GzLrx&_nc_ht=scontent-sin6-2.xx&oh=d51ef067a4c875f0adc28782930f359f&oe=61229C90);
+                }
+            #button{
+                width: 100px;
+                 margin-top: 10px; 
+                 margin-bottom: 30px; 
+                 border-radius: 10px;
+                 font-style: italic;
+                 font-weight: 500;
+                }
+                #button:hover{
+                    background-image: url(https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/239946577_4520712691292352_6531315952025537487_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=9267fe&_nc_ohc=8im1_NQz9RQAX_GzLrx&_nc_ht=scontent-sin6-2.xx&oh=d51ef067a4c875f0adc28782930f359f&oe=61229C90);
+                }
+            .h1{
+                display: block;
+                text-align: center;
+            }
+            a{
+                color: black;
+            }
+            .b{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+           .ext{
+               display: flex;
+               justify-content: center;
+           }
+           
+        </style>
+    </head>
+    <body class="body">
+        <div>
+            <h1 class="h1">
+                Calculate Your Body Mass Index</h1>
+            <div class="b">
+                <form name="form">
+                    <label for="num1"><b>Weight (kg)</b> </label>
+                    <input type="number" name="Num1" id="num1" step="0.1">
+        
+                    <label for="num2"><b>Height (m)</b></label>
+                    <input type="number" name="Num2" id="num2" step="0.1">
+        
+                    <button id="button" type="button" onclick="calculate()" >Calculate BMI</button>
+        
+                    <label for="result">Your BMI Result is:</label>
+                    <input type="number" name="Result" id="result" step="0.1" readonly>
+                </form>
+            </div>
+            
+                <div class="ext">
+                    <p><b>BMI Categories:</br>
+                        Underweight = <18.5 </br>
+                        Normal weight = 18.5–24.9 </br>
+                        Overweight = 25–29.9 </br>
+                        Obesity = BMI of 30 or greater 
+                        </b>
+                        </p>
+                </div>
+
+                <b>You can learn more about your health problem here:=>
+                    <a href="https://www.nhlbi.nih.gov">NATIONAL HEART, LUNG, AND BLOOD INSTITUTE
+                    </a>
+                </b>
+        </div>
+           
+        
+    </body>
+    </html>

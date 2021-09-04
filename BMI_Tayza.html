@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="BMI_Tayza.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BIM Calculator</h1>
+        <h4 class="lead text-center display-6">Weight</h4>
+        <h4>Enter Kilograms</h4>
+        <input type="text" placeholder="Enter Your Weight" id="weight" class="form-control text-success"> <br>
+        <h4>Feet</h4>
+        <input type="text" placeholder="Enter Your feet" id="feet" class="form-control text-success"> <br>
+        <h4>Inch</h4>
+        <input type="text" placeholder="Enter Your inch" id="inch" class="form-control text-success"> <br>
+        <button id="button" class="btn bg-warning text-black">Submit</button>
+        <br>
+        <h3 id="result" class="text-center">Result is ...</h3>
+    </div>
+
+    <script>
+        const btn = document.getElementById("button");
+        
+        btn.addEventListener("click" , function(){
+            var weight = document.getElementById("weight").value; 
+            var feet = document.getElementById("feet").value;
+            var inch = document.getElementById("inch").value;
+
+            if(weight > 0 || feet > 0 || inch > 0){
+
+                let currentweight = parseInt(weight);
+                let currentfeet = parseInt(feet);
+                let currentinch = parseInt(inch);
+                //Convent feet into cemtimeters
+                var feets = (currentfeet * 12) + 4;
+                var cemtimeters = feet * 2.54;
+                console.log(cemtimeters);
+                //1m = 100cm
+                var meter = (cemtimeters * 0.100);
+                console.log(meter)
+                //--------------------------------
+                var math = Math.pow(meter , 2);
+                console.log(math)
+                //---------------------------------
+                var calculate = (77 / meter);
+                console.log(calculate)
+                //End of calculation
+                //---Conditions
+                if(calculate < 18.5){
+                    alert("You are underweight");
+                    alert("Eat something delicious! :)");
+                }
+                else if(calculate > 18.5 && calculate < 24.9){
+                    alert("You are normalweight");
+                    alert("GG!");
+                }
+                else if(calculate > 25.0 && calculate < 29.9){
+                    alert("You are overweight");
+                    alert("must do workouts!")
+                }
+                else if(calculate > 30.0 && calculate < 34.9){
+                    alert("You are overweight");
+                    alert("Obese level 1 no joke!")
+                    alert("must do workouts!")
+                }
+                else if(calculate > 35.0 && calculate < 39.9){
+                    alert("You are overweight");
+                    alert("Morbidly obese level 2 no joke!")
+                    alert("Get up now and go do some workouts!")
+                }
+                else{
+                    alert("You are overweight");
+                    alert("Morbidly obese level 3 no joke!")
+                    alert("Get up now and go do some workouts!")
+                }
+                // console.log("Weight -> " + currentweight);
+                // console.log("Feet -> " + currentfeet);
+                // console.log("Inch -> " + currentinch);
+                document.getElementById("result").innerHTML = "Result is " + calculate;
+            }
+            else{
+                alert("Field can't be empty")
+            }
+        })
+    </script>
+</body>
+</html>
